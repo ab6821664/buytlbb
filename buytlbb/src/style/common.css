@@ -1,0 +1,194 @@
+/*公共样式*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", "微软雅黑", "宋体", "helvetica", "Hiragino Sans GB";
+}
+
+body {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+i {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:link{
+    color:#a6a6a6;
+}
+a:visited{
+    color:#a6a6a6
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+    border: 1px solid #ffd435;
+    box-shadow: 0 0 3px #ffd435;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+select {
+    height: 40px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    padding: 0 5px;
+    color: #666;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: normal;
+    -webkit-line-height: normal;
+    -moz-line-height: normal;
+    -ms-line-height: 40px;
+    -o-line-height: normal;
+    background: #fcfcfc;
+}
+
+
+*:focus {
+    outline: none
+}
+
+input[placeholder],
+[placeholder],
+*[placeholder] {
+    color: #999;
+}
+
+input {
+    background: #fcfcfc;
+}
+
+textarea {
+    resize: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    padding: 0 5px;
+    color: #666;
+    box-sizing: border-box;
+    background: #fcfcfc;
+    font-family: "Microsoft YaHei", "微软雅黑", "宋体", "helvetica", "Hiragino Sans GB";
+}
+
+textarea:focus {
+    border: 1px solid #fdd435;
+    box-shadow: 0 0 3px rgba(255, 228, 136, 0.5);
+}
+
+textarea::-webkit-input-placeholder {
+    color: #a6a6a6;
+}
+
+textarea:-moz-placeholder {
+    color: #a6a6a6;
+}
+
+textarea::-moz-placeholder {
+    color: #a6a6a6;
+}
+
+.com-error-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: transparent
+}
+
+.com-error-tip {
+    position: absolute;
+    font-size: 12px;
+    width: 160px;
+    top: 40%;
+    left: 50%;
+    margin-left: -80px;
+    line-height: 20px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    color: #fff;
+    background: rgba(0, 0, 0, .5)
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.clearfix:after {
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+    visibility: hidden
+}
+
+.fdd-lz-right {
+    z-index: 10 !important;
+}
+.fdd-lz-editor-name-box input,.fdd-lz-editor-value-box input {
+    text-indent: 0;
+}
+.fdd-lz-contract,.fdd-lz-contract .item {
+    width:800px !important;
+    background-size:800px;
+    background-repeat: no-repeat;
+}
+.disabled_click {
+    color:#eaeaea !important;
+}
+.fdd-lz-select-options-txt i {
+    width:auto !important;
+    top:0 !important;
+    left: 10px !important;;
+}
+.fdd-lz-select-options-txt .down-arrow {
+    width:12px !important;
+    top:12px !important;
+    left:120px !important;
+}
+#fdd-lz-add-contact-wrap .sign-select .fdd-lz-select-options-txt {
+    top:15px;
+}
+.fdd-lz-add-contact-box .contact {
+    width:200px;
+    height: 36px !important;
+}
+.phone-contact .contact span {
+    width:200px !important;
+    max-width:200px !important;
+    text-indent:0 !important;
+}
+.fdd-lz-add-contact-box input {
+    margin-left:0;
+}
+.fdd-lz-content-box .sign-select-list {
+    top:52px !important;
+}
+.sign-wrap .phone-contact .contact {
+    line-height: 32px !important;
+}
