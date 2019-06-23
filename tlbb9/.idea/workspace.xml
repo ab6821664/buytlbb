@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea71f67c-10ba-48b7-8565-3d883c83b0a5" name="Default Changelist" comment="" />
+    <list default="true" id="ea71f67c-10ba-48b7-8565-3d883c83b0a5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../buytlbb/src/api/nodeApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/src/components/nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/src/components/nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/src/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/src/home/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/src/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/src/style/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/src/style/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/src/style/main.less" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/src/style/main.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../buytlbb/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../buytlbb/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-source/query-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/data-source/query-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="395">
+              <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -39,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data-source/trade-update.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="179">
+              <caret line="24" column="90" lean-forward="true" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -48,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data-source/query-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+            <state relative-caret-position="212">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -79,8 +93,9 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="PATH_TO_GIT" value="D:\software\git\Git\git-cmd.exe" />
+    <option name="PATH_TO_GIT" value="D:\software\Git\bin\git.exe" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -101,10 +116,13 @@
     </layout>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
+    <option name="x" value="340" />
+    <option name="y" value="94" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -118,22 +136,29 @@
               <item name="tlbb9" type="b2602c69:ProjectViewProjectNode" />
               <item name="tlbb9" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="tlbb9" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tlbb9" type="462c0819:PsiDirectoryNode" />
+              <item name="data-source" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559492208121" />
     <property name="jdk.selected.JAVA_MODULE" value="1.6" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tlbb" />
+    <property name="last_opened_file_path" value="D:/software/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -184,11 +209,13 @@
       <workItem from="1560911655708" duration="18719000" />
       <workItem from="1560996136045" duration="15732000" />
       <workItem from="1561101481511" duration="1986000" />
+      <workItem from="1561169408192" duration="2027000" />
+      <workItem from="1561185188503" duration="15732000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147037000" />
+    <option name="totallyTimeSpent" value="164796000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -200,10 +227,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1995731" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16075794" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -218,9 +244,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32843137" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.8676627" visible="true" weight="0.32391304" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.8676627" visible="true" weight="0.2911534" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.13233724" side_tool="true" weight="0.3619565" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Maven" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -265,24 +291,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-source/query-data.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/body-parser/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data-source/trade-update.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="14" />
+        <state relative-caret-position="179">
+          <caret line="24" column="90" lean-forward="true" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-source/query-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        <state relative-caret-position="395">
+          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
         </state>
       </provider>
     </entry>

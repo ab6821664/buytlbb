@@ -1,9 +1,9 @@
 <template>
     <header>
        <div class="link-tab">
-           <div v-bind:class="{ select: index==1 }" @click="chooseTab(1)"><i class="el-icon-s-home"></i> <router-link to="/">首页</router-link>></div>
-           <div v-bind:class="{ select: index==2 }" @click="chooseTab(2)"><i class="el-icon-goods"></i> 公示区秒号</div>
-           <div v-bind:class="{ select: index==3 }" @click="chooseTab(3)"><i class="el-icon-star-off"></i> <router-link to="trading">交易区监控</router-link></div>
+           <div v-bind:class="{ select: index==1 }" @click="chooseTab(1,'/')"><i class="el-icon-s-home"></i> <span to="/">首页</span></div>
+           <div v-bind:class="{ select: index==2 }" @click="chooseTab(2,'/buy')"><i class="el-icon-goods"></i> <span to="/buy">公示区秒号</span></div>
+           <div v-bind:class="{ select: index==3 }" @click="chooseTab(3,'/trading')"><i class="el-icon-star-off"></i> <span to="trading">交易区监控</span></div>
            <div class="login" @click="loginDialogVisible=true"><i class="el-icon-user"></i> 登录/注册</div>
        </div>
         <div class="account" v-show="index==1">
@@ -94,8 +94,9 @@
         },
         methods:{
             //首页菜单切换
-            chooseTab(index){
+            chooseTab(index,url){
                 this.index=index;
+                this.$router.push({path:url,query:{index:index}});
             },
             //注册
             registAccount(){
@@ -163,6 +164,7 @@
             if(user){
                 this.queryUserMsg(user);
             }
+            this.index=this.$route.query.index;
         }
     }
 </script>

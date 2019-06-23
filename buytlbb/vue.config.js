@@ -6,5 +6,5 @@ module.exports = {
         port:7070
     },
     productionSourceMap:false,
-
+    lintOnSave:false
 }

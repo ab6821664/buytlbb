@@ -16,7 +16,7 @@
           </div>
       </el-dialog>
 
-      <Login v-on:stop="stop_run" v-on:mode="change_mode" :take="times"></Login>
+      <v-nav></v-nav>
       <div id="action">
           <div>
               <el-button type="warning" icon="el-icon-info" @click="getTip">点击查看使用说明</el-button>
@@ -64,7 +64,7 @@
   import Vue from 'vue';
   import $ from "jquery"
   import { visitAdd } from '../api/api'
-  import Login from './Login.vue'
+  import nav from './nav'
 export default {
     data() {
         return {
@@ -331,7 +331,7 @@ export default {
             visitAdd();
         }
     },
-    components:{Login},
+    components:{"v-nav":nav},
     mounted:function(){
         var this_=this;
         function monitor() {
@@ -375,7 +375,8 @@ export default {
      justify-content: space-around;
      width: 80%;
      margin: 0 auto;
-     flex-direction: row
+     flex-direction: row;
+     margin-top:60px;
  }
   .content_header{
      height:30px;

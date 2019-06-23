@@ -7,16 +7,28 @@ let connection = mysql.createConnection({
     database:'tlbb9'
 })
 
-connection.connect();
 
-let home_query='select * from trading where price>? and price<? and grade>? and grade <? order by ? desc limit 20'
+//let home_query='select * from trading where price>? and price<? and grade>? and grade <? order by ? desc limit 20'
 
-function home_main_query(params) {
+
+
+//let home_query='select * from trading order by ? desc limit 20'
+
+function home_main_query(params,order,kind) {
+    let home_query;
+    if(params[params.length-1]==1) {
+        params.splice(params.length-1,1);
+        console.log(params)
+         home_query='select * from trading where price>? and price<? and grade>? and grade <?   order by '+order+' desc limit 30'
+    }else{
+         home_query='select * from trading where price>? and price<? and grade>? and grade <? and world_id=?  order by '+order+' desc limit 30'
+    }
     return  new Promise(function (resolve, reject) {
         connection.query(home_query, params ,function (err, result) {
             if(err){
                 reject(err)
             }else {
+
                 resolve(result)
             }
         })

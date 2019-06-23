@@ -1,19 +1,56 @@
-
+home-account-show
  .trad-wrap{
    color:red;
  }
+.link-to{
+  color:#409EFF;
+}
  .main-content{
    width: 1100px;
    margin: 0 auto;
    text-align: left;
- }
- .home-account-show{
+   .home-account-show{
+     display: flex;
+     justify-content: space-between;
      margin-top:80px;
-     h5{
-       border-left: solid 4px #cb53ff;
+     h3{
+       border-left: solid 4px #409EFF;
        height: 30px;
        line-height: 30px;
        vertical-align: middle;
        padding-left: 20px;
      }
+   }
+   .search-filter{
+        border-bottom: solid 1px #e3f0e7;
+       padding-bottom: 15px;
+        padding-left: 30px;
+        margin-top:30px;
+        display: flex;
+        font-size:14px;
+        justify-content: space-between;
+        input{
+          display: inline-block!important;
+        }
+       .link-to{
+          position: relative;
+         top:10px;
+       }
+     .search{
+       width:120px;
+       margin-left: 90px;
+     }
+     .title{
+       width:120px;
+       margin-right: 90px;
+     }
+     .orderBy{
+       display: flex;
+       justify-content: space-between;
+       flex-wrap: wrap;
+     }
+   }
+   .main-table{
+     margin-bottom: 90px;
+   }
  }
