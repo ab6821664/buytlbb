@@ -6,9 +6,9 @@
               width="50%"
       >
           <div style="text-align: left">
-              1:首先安装Google Chrome 浏览器<br/>
-              2：D盘新建文件夹，命名比如temp；<br/>
-              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格)--disable-web-security --user-data-dir=D:\temp<br/>
+              1:首先安装Google Chrome 浏览器  --- > <a href="https://www.google.cn/chrome/" target="_blank">点击下载谷歌浏览器!</a><br/>
+              2：C盘新建文件夹，命名比如temp；<br/>
+              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格)--disable-web-security --user-data-dir=C:\temp<br/>
               4:保存后，打开此浏览器，重新访问本网页。<br/>
               5：同时在本浏览器登录畅易阁。<br/>
               6：如有多个账号，可以右击浏览器图标，创建快捷方式，重复以上操作，几个账号同时抢购成功率更高。<br/>

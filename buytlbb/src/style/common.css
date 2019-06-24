@@ -24,11 +24,13 @@ i {
 a {
     text-decoration: none;
     cursor: pointer;
+
 }
 
 a:link{
     color:#a6a6a6;
 }
+
 a:visited{
     color:#a6a6a6
 }
