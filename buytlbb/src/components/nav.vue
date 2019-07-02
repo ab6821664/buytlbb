@@ -75,7 +75,7 @@
                 card:'',
             }
         },
-        name: "nav",
+        name: "navtab",
         filters:{
             date(value){
                 if(value==0){
@@ -124,10 +124,12 @@
             // 查询
             queryUserMsg(account){
                 let this_ = this;
-                queryUser({user:account}).then(function (res) {
+                queryUser({user:account}).then(res=> {
                      this_.userInfo.account=res.data[0].user;
                     this_.userInfo.score=res.data[0].score;
                     this_.userInfo.deadLineTime=res.data[0].time;
+                    sessionStorage.setItem("time",res.data[0].time);
+                    this.$emit('userInfo',this_.userInfo.deadLineTime)
                 })
             },
             //登录
@@ -141,6 +143,11 @@
                         this_.$message({
                             message: '登录成功',
                             type: 'success'
+                        });
+                    }else {
+                        this_.$message({
+                            message: ' 登录失败',
+                            type: 'warning'
                         });
                     }
                 })
@@ -164,7 +171,7 @@
             if(user){
                 this.queryUserMsg(user);
             }
-            this.index=this.$route.query.index;
+            this.index=this.$route.query.index || 1;
         }
     }
 </script>

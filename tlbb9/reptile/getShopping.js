@@ -2,20 +2,27 @@ let request = require('request');
 let cheerio = require('cheerio');
 let data = require( "../data-source/trade-update.js");
 let update = data.update;
-let conne = data.conne;
 let deleteShop = data.deleteShop;
 
 let getDetai = require("./account.js")
 let getDetaiMsg = getDetai.dataiMsg;
 
-let ifGetDetail = true;;
+//  交易区列表爬取
 
-let updateUrl = 'http://tl.cyg.changyou.com/goods/selling?world_id=0&page_num=';
-let page = 591;
+
+
+    let userBean = {
+        search:1,  //  1  搜索交易区  2  搜索公式区
+        ifGetDetail:false  // 是否获取详情
+    }
+
+   let updateUrl = userBean.search==1?'http://tl.cyg.changyou.com/goods/selling?world_id=0&order_by=remaintime-desc&have_chosen=&page_num=':'http://tl.cyg.changyou.com/goods/public?world_id=0&order_by=remaintime-desc&have_chosen=&page_num=';
+
+let page = 1;
 
 function getMessage(){
     console.log(page);
-    let url = updateUrl+page;
+    let url = updateUrl+page+'#goodsTag';
 request.get({
     url:url,
     headers:{
@@ -46,11 +53,11 @@ request.get({
             let deadLineTimeMint = day?Number(deadLineTime.substr(7,2)):Number(deadLineTime.substr(8,2))
             let deadLineTimeTamp = new Date().getTime()+deadLineTimeDay*(deadLineTime?86400000:3600000)+deadLineTimehour*(deadLineTime?3600000:60000)+deadLineTimeMint*(deadLineTime?60000:1000);
             if (isNaN(deadLineTimeTamp))  continue;
-            account.push(deadLineTimeTamp)
+            account.push(deadLineTimeTamp+(userBean.search==2?1209600000:0))
             account.push(0)
             account.push(null)
             account.push(null)
-            if(ifGetDetail){
+            if(userBean.ifGetDetail){
                 pageAccount.push(new Promise(function updateAcountData(resolve,reject) {
                     new Promise(function (resolve1,reject) {
                         getDetaiMsg(account[0],resolve1)
@@ -62,6 +69,7 @@ request.get({
                     })
                 })  )
             }else {
+                console.log(account);
                 pageAccount.push(new Promise(function updateAcountData(resolve,reject) {
                     update(account,resolve,reject);
                 })  )

@@ -1,7 +1,9 @@
+//  交易区账号详细信息爬取
+
 let request = require('request');
 let cheerio = require('cheerio');
 
-let cookId = '8cac0008-0b01-4dc9-b301-6e403c82d03b';
+let cookId = 'aa9523ac-e2d1-4369-afc8-a05cfbc3e761';
 let j = request.jar();
 request = request.defaults({jar:j})
 let url='http://tl.cyg.changyou.com/goods/char_detail';
@@ -21,7 +23,6 @@ function dataiMsg(account,resolve){
         }
     },function (err,res,body) {
         let $=cheerio.load(body)
-        console.log(account);
         acountMsg.push(Number($($('[data-tip="bing"] .c-o-l')[0]).text().split(' ')[1].split('\n')[0].slice(1)))    //冰
         acountMsg.push(Number($($('[data-tip="huo"] .c-o-l')[0]).text().split(' ')[1].split('\n')[0].slice(1)))     //火
         acountMsg.push(Number($($('[data-tip="xuan"] .c-o-l')[0]).text().split(' ')[1].split('\n')[0].slice(1)))    //玄
@@ -29,14 +30,14 @@ function dataiMsg(account,resolve){
         acountMsg.push(acountMsg[0]+acountMsg[1]+acountMsg[2]+acountMsg[3])                // 4属性
         acountMsg.push(Number($($('[data-tip="sword"] .c-o-l')[0]).text().split('：')[1].trim()))  //穿刺
         acountMsg.push(Number($($('.fn-high-light')[0]).text())) //血
-      //  console.log($($('#goods-detail .box2')).text())
         acountMsg.push(Number($($('#goods-detail .box2')).text().split('\n')[15].split('：')[1].split(' ')[0])) //命中
         acountMsg.push(Number($($('#goods-detail .box2')).text().split('\n')[17].split('：')[1]))  // 会心
         let rank=$($('#goods-detail .box2')).text().split('\n')[26].split('：')[1];
-        if(rank<959) rank=0;
-        if(959<rank<1279) rank=1;
-        if(1279<rank<1919) rank=2;
-        if(1219<rank) rank=3;
+        rank = Number(rank)
+        if(rank<959) {rank=0}
+        else if(959<rank && rank<1279 ) rank=1;
+        else if(1279<rank && rank<1919) rank=2;
+        else rank=3;
         acountMsg.push(rank) //进阶
         acountMsg.push(Number($($('#goods-detail .box2')).text().split('\n')[38].split('：')[1]))  // 元宝
         let animal=($($($('#tab_3').html()).find('.bar-title3')).length/4)
@@ -50,6 +51,8 @@ function dataiMsg(account,resolve){
         }
         acountMsg.push(double10-trigle10)    // 双10
         acountMsg.push(trigle10)   //  三十
+        let menpai = $($(".fn-other-menpai")[0]).text().split(':')[1]
+        acountMsg.push(menpai)
         let goods_id=$($('#btnCollect')[0]).attr('data-goods-id');
         let url='http://tl.cyg.changyou.com/goods/checkisfavor?goods_id='+goods_id+'&t='+new Date().getTime();
         request(url,function (err,res,body) {

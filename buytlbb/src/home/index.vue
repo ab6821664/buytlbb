@@ -1,12 +1,13 @@
 <template>
     <div>
-        <v-nav></v-nav>
+        <v-nav @userInfo="getUserInfo"></v-nav>
         <div class="main-content">
            <div class="home-account-show">
                <h3><span>账号精准搜索</span></h3>
                <div>
-                   <el-radio v-model="source" label="1">交易区</el-radio>
-                   <el-radio v-model="source" label="2">公示区</el-radio>
+                   <el-radio v-model="source" label="0">全部</el-radio>
+                   <el-radio v-model="source" label=1>交易区</el-radio>
+                   <el-radio v-model="source" label=2>公示区</el-radio>
                </div>
            </div>
             <div class="search-filter">
@@ -32,7 +33,7 @@
             </div>
             <div class="search-filter">
                 <div class="title">
-                    排序依据: 前20名
+                    排序依据: 前30名
                 </div>
                 <div  style="height:80px" class="orderBy">
                     <el-radio v-model="orderBy" label="bing">冰攻击</el-radio>
@@ -71,6 +72,7 @@
                     <el-table-column       sortable prop="doubleEm"   label="会心"   width="80">    </el-table-column>
                     <el-table-column       sortable prop="target"   label="命中"   width="80">    </el-table-column>
                     <el-table-column      sortable prop="tick"   label="穿刺"   width="80">    </el-table-column>
+                    <el-table-column      sortable prop="rank"   label="进阶号"   width="80">    </el-table-column>
                     <el-table-column
                             label="操作"
                             width="100">
@@ -81,7 +83,7 @@
                 </el-table>
             </div>
         </div>
-        <el-dialog  title="请输入您所在的游戏服务器"  :visible.sync="chooseZero"   width="600px"  before-close="">
+        <el-dialog  title="请输入您所在的游戏服务器"  :visible.sync="chooseZero"   width="600px">
             <el-input placeholder="输入服务器名字，或者从列表选择" v-model="serverFilter"></el-input>
             <p  @click="serverFilter = '全部区服';chooseServerSelectIt={id:'',name:'全部区服'}" style="margin-top: 15px">全部区服</p>
             <div style="height:300px;overflow: auto">
@@ -103,32 +105,42 @@
     export default {
         data:function(){
             return{
-                source:"1" ,// 1 交易区  2  公示区
+                source:"0" ,// 1 交易区  2  公示区
                 chooseZero:false,
                 price_start:'',
                 price_end:'',
                 grade_start:"",
                 grade_end:'',
                 kindOptions:[
+                    {value: 1,  label: '不限门派'},
                     {value: '天山',  label: '天山'},{value: '唐门',  label: '唐门'},{value: '峨眉',  label: '峨眉'},{value: '武当',  label: '武当'},
                     {value: '星宿',  label: '星宿'},{value: '丐帮',  label: '丐帮'},{value: '鬼谷',  label: '鬼谷'},{value: '明教',  label: '明教'},
-                    {value: '少林',  label: '少林'},{value: '天龙',  label: '天龙'},
+                    {value: '少林',  label: '少林'},{value: '天龙',  label: '天龙'}
                 ],
-                kindOptionsSelect:'',
+                kindOptionsSelect:1,
                 orderBy:'bold',
-                mainData:'',
+                mainData:[],
                 allChildServe:[],
                 serverFilter:'',
-                chooseServerSelectIt:{id:'',name:'全部区服'}
+                chooseServerSelectIt:{id:'',name:'全部区服'},
+                deadLineTime:0,
+                queryTime:0
             }
         },
         created(){
             this.main_query()
             this.chooseServe()
+            this.queryTime = new Date().getTime();
         },
         methods:{
             main_query(){
-                console.log(66)
+                if(this.deadLineTime<new Date().getTime()){
+                    if(new Date().getTime()-this.queryTime<8000){
+                        this.$message(' 未登录或者非会员限制8秒查询一次，请稍后再试');
+                        return;
+                    }
+                }
+                this.queryTime = new Date().getTime();
                let query={};
                 query.params=[];
                 query.order=this.orderBy;
@@ -136,8 +148,16 @@
                 query.params.push(this.price_end==''?800000:this.price_end);
                 query.params.push(this.grade_start==''?0:this.grade_start);
                 query.params.push(this.grade_end==''?1700000:this.grade_end);
+                let nowTime = new Date().getTime();
+                let tradingTime = nowTime + 1209600000;
+                let publicTime = tradingTime + 604800000;
+                let sourceArray;
+                 if(this.source==0) sourceArray = [nowTime,publicTime]
+                 else if(this.source==1) sourceArray = [nowTime,tradingTime]
+                 else sourceArray = [tradingTime,publicTime]
+                query.params.push(...sourceArray);
                 query.params.push(this.chooseServerSelectIt.id==''?"1":this.chooseServerSelectIt.id);
-                query.kind=this.kindOptionsSelect==''?"[%":"[%"+this.kindOptionsSelect+"%";
+                query.kind=this.kindOptionsSelect;
                homeQuery(query).then((res)=>{
                    this.mainData=res;
                })
@@ -151,6 +171,9 @@
             chooseServerSelect(it){
                 this.chooseServerSelectIt=it;
                 this.serverFilter = it.name;
+            },
+            getUserInfo(time){
+                this.deadLineTime = time;
             },
             chooseZeroCommit(){
                 let find=false;

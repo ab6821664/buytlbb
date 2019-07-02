@@ -18,4 +18,20 @@ let  base='http://localhost:3000';
 
   }
 
-  export {homeQuery};
+  // 交易区价格监控
+
+let monitorPrice =  (params)=>{
+      return new Promise((resolve,reject)=>{
+          axios({
+              url:base+'/monitorPrice',
+              method:'post',
+              data:params
+          }).then((res)=>{
+              resolve(res.data)
+          }).catch((err)=>{
+              reject(err)
+          })
+      })
+}
+
+  export {homeQuery,monitorPrice};
