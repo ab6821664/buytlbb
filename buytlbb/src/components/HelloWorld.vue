@@ -6,17 +6,19 @@
               width="50%"
       >
           <div style="text-align: left">
-              1:首先安装Google Chrome 浏览器  --- > <a href="https://www.google.cn/chrome/" target="_blank">点击下载谷歌浏览器!</a><br/>
-              2：C盘新建文件夹，命名比如temp；<br/>
-              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格)--disable-web-security --user-data-dir=C:\temp<br/>
+              1:首先安装Google Chrome 浏览器  --- > <a href="https://www.google.cn/chrome/" target="_blank" style="color:orangered">点击下载谷歌浏览器!</a><br/>
+              2：C盘新建文件夹，命名比如<span style="color:#409EFF">temp</span>；<br/>
+              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格) --disable-web-security --user-data-dir=C:\<span style="color:#409EFF">temp</span><br/>
+              <img src="../assets/teach.png"> <br/>
               4:保存后，打开此浏览器，重新访问本网页。<br/>
               5：同时在本浏览器登录畅易阁。<br/>
               6：如有多个账号，可以右击浏览器图标，创建快捷方式，重复以上操作，几个账号同时抢购成功率更高。<br/>
-              7：客服微信13715549992，可购卡<br/>
+              7：客服微信<span style="color:orangered">13715549992</span>，可购卡<br/>
           </div>
       </el-dialog>
 
-      <v-nav></v-nav>
+
+      <v-nav @userInfo="getUserInfo"></v-nav>
       <div id="action">
           <div>
               <el-button type="warning" icon="el-icon-info" @click="getTip">点击查看使用说明</el-button>
@@ -73,27 +75,25 @@ export default {
             goods_list:[],
             goods_list_detail:[],
             tip:"www",
-            status:true,
+            status:false,
             buy_mode:"",
             tips:false,
-            times:0
+            times:0,
+            deadLineTime:sessionStorage.getItem("time")
         }
     },
     methods:{
-        outer:function(){
-            window.location.href="https:www.miitbeian.gov.cn";
-        },
-        speed:function(){
-            this.temp=false;
-        },
         change_mode:function(mode){
             this.buy_mode=mode;
+        },
+        getUserInfo(time){
+            this.deadLineTime = time;
         },
         getTip:function(){
             this.tips=true;
         },
         add_list:function () {
-            if(this.status==false){
+            if(new Date().getTime()>this.deadLineTime){
                 alert(" 账号已到期或未充值")
                 return;
             }
@@ -248,13 +248,13 @@ export default {
                     }
                 ).then(function (res) {
                     var value=res.data.pic_str;
-                    var addMsg="<br/>识别到验证码 <span style='color: red'>"+value+"</span>";
+                   var addMsg="<br/>识别到验证码 <span style='color: red'>"+value+"</span>";
                     this_.goods_list_detail[index].bug_msg=this_.goods_list_detail[index].bug_msg+addMsg;
                     times++;
                     sec_buy(value,index)
                 }).catch(function () {
-                    var addMsg="<br/><span style='color: red;'>再次</span>拉取更新验证码图片";
-                    this_.goods_list_detail[index].bug_msg=this_.goods_list_detail[index].bug_msg+addMsg;
+                //    var addMsg="<br/><span style='color: red;'>再次</span>拉取更新验证码图片";
+              //      this_.goods_list_detail[index].bug_msg=this_.goods_list_detail[index].bug_msg+addMsg;
                     times++;
                     identify(num,index);
                 })
@@ -380,7 +380,6 @@ export default {
  }
   .content_header{
      height:30px;
-
     border-bottom: solid 1px grey;
     display: flex;
   }
@@ -420,7 +419,7 @@ export default {
     color:white;
   }
     .content_order{
-        color:red;
+        color:orangered;
     }
     .record{
         position:absolute;
