@@ -42,16 +42,33 @@ function home_main_query(params,order,kind) {
 
 function monitor_price(params){
      let time = new Date().getTime()+1209600000;
-     let monitor = 'select * from trading where price_down = 1 and deadline_time < '+time+ ' limit 50'
-    return new Promise( (resolve,reject)=>{
-        connection.query(monitor,function (err,result) {
-            if(err){
-                reject(err)
-            }else {
-                resolve(result)
-            }
-        })
-    })
+     console.log(params)
+     if(params==1){
+         console.log('all')
+         let monitor = 'select * from trading where price_down = 1 and deadline_time < '+time+ ' limit 50';
+         return new Promise( (resolve,reject)=>{
+             connection.query(monitor,function (err,result) {
+                 if(err){
+                     reject(err)
+                 }else {
+                     resolve(result)
+                 }
+             })
+         })
+     }else {
+         let monitor = 'select * from trading where world_id=? and price_down = 1 and deadline_time < '+time+ ' limit 50';
+         return new Promise( (resolve,reject)=>{
+             connection.query(monitor,params,function (err,result) {
+                 if(err){
+                     reject(err)
+                 }else {
+                     resolve(result)
+                 }
+             })
+         })
+     }
+
+
 }
 
 module.exports={

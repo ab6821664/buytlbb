@@ -78,7 +78,7 @@ request.get({
         }
         Promise.all(pageAccount).then(function () {
             page=page+1;
-            setTimeout(getMessage,25000);
+            setTimeout(getMessage,5000);
         }).catch(function (err) {
             console.log('fail to next page',err)
         })

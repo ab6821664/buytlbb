@@ -73,7 +73,7 @@
         </div>
         <el-dialog  title="请输入您所在的游戏服务器"  :visible.sync="chooseZero"   width="600px">
             <el-input placeholder="输入服务器名字，或者从列表选择" v-model="serverFilter"></el-input>
-            <p  @click="serverFilter = '全部区服';chooseServerSelectIt={id:'',name:'全部区服'}" style="margin-top: 15px">全部区服</p>
+            <p  @click="serverFilter = '全部区服';chooseServerSelectIt={id:1,name:'全部区服'}" style="margin-top: 15px">全部区服</p>
             <div style="height:300px;overflow: auto">
 
                 <p v-for="it in allChildServe"  @click="chooseServerSelect(it)" v-show="serverFilter.length>0 && it.name.indexOf(serverFilter)>-1" style="margin-top:15px">{{it.name}}</p>
@@ -104,7 +104,7 @@
         },
         created(){
             this.chooseServe();
-            this.mainQuery({})
+            this.mainQuery({world:this.chooseServerSelectIt.id})
         },
         name: "trading",
         watch:{
@@ -116,6 +116,9 @@
                         this_.checkList=[];
                     },3200)
                 }
+            },
+            chooseServerSelectIt(){
+                this.mainQuery({world:this.chooseServerSelectIt.id})
             }
         },
         components:{

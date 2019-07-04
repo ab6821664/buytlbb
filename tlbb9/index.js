@@ -36,7 +36,7 @@ app.post('/homeQuery', function(req, res){
 
 app.post('/monitorPrice', function(req, res){
     res.header('Access-Control-Allow-Origin', '*')
-    monitor_price(req.body.params).then((data)=>{
+    monitor_price(req.body.world).then((data)=>{
         res.json(data)
     }).catch((err)=>{
         console.log(err)
