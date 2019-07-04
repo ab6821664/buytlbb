@@ -13,7 +13,7 @@
              <div class="msg">
                  <p>当前账号：{{userInfo.account}}</p>
                  <p>题分：{{userInfo.score}}</p>
-                 <p>到期时间：{{userInfo.deadLineTime | date}}</p>
+                 <p>到期时间：{{userInfo.deadLineTime | date}} <span v-if="userInfo.deadLineTime-new Date().getTime()<7200000 && userInfo.deadLineTime-new Date().getTime()>1 "> }}| 测试卡</span></p>
              </div>
         </div>
         <el-dialog
@@ -101,7 +101,7 @@
             //注册
             registAccount(){
                  let this_ = this;
-                regist({user:this.account,password:this.password}).then(function (res) {
+                regist({user:this.account,password:md5(this.password)}).then(function (res) {
                    if(res.data==1){
                        this_.userInfo.account = this_.account;
                        localStorage.setItem("user",this_.account)

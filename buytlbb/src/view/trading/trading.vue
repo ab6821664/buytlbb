@@ -14,15 +14,27 @@
                         </div>
                     </div>
                     <div>
-                        装备评分:<input type="text" style="width: 80px;"/> - <input type="text"  style="width: 80px"/>
+                        装备评分: <input type="text" style="width: 80px;"/> - <input type="text"  style="width: 80px"/>
                     </div>
+
                     <div>
-                        通知手机号码:<input type="text" style="width: 280px;"/>
-                    </div>
-                    <div>
-                        <el-button type="success" @click="save">保存</el-button>
+                        降价后价格: <input type="text" style="width: 80px;"/> - <input type="text"  style="width: 80px"/>
                     </div>
                 </div>
+                <div style="display: flex;justify-content: space-between;margin-top: 30px">
+                    <div>
+                        降价幅度大于: <input type="text" style="width: 80px;"/>
+                    </div>
+                    <div>
+                        通知手机号码: <input type="text" style="width: 280px;"/>
+                    </div>
+                    <div style="border-bottom: solid 1px orangered">
+                        <el-checkbox-group v-model="checkList">
+                            <el-checkbox label="一键启动智能监控购买"></el-checkbox>
+                        </el-checkbox-group>
+                    </div>
+                </div>
+
             </div>
             <div class="home-account-show">
                 <h3><span>交易区账号价格监控</span></h3>
@@ -46,13 +58,13 @@
                     <el-table-column        prop="huo"   label="火"   width="60">    </el-table-column>
                     <el-table-column        prop="xuan"   label="玄"   width="60">    </el-table-column>
                     <el-table-column        prop="du"   label="毒"   width="60">    </el-table-column>
-                    <el-table-column        prop="fourAll"   label="四属性之和"   width="90">    </el-table-column>
                     <el-table-column        prop="bold"   label="血上限"   width="90">    </el-table-column>
                     <el-table-column
                             label="操作"
-                            width="100">
+                            width="150">
                         <template slot-scope="scope">
                             <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+                            <el-button @click="handleClickBuy(scope.row)" type="text" size="small">一键购买</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -86,7 +98,8 @@
                 chooseZero:false,
                 serverFilter:'',
                 allChildServe:[],
-                mainData:[]
+                mainData:[],
+                checkList:[]
             }
         },
         created(){
@@ -94,6 +107,17 @@
             this.mainQuery({})
         },
         name: "trading",
+        watch:{
+            checkList(value){
+                if(value.length>0){
+                    this.$message('未注册或者非会员不支持此功能');
+                    let this_=this;
+                    setTimeout(function () {
+                        this_.checkList=[];
+                    },3200)
+                }
+            }
+        },
         components:{
             'v-nav':nav,
         },

@@ -8,7 +8,7 @@
           <div style="text-align: left">
               1:首先安装Google Chrome 浏览器  --- > <a href="https://www.google.cn/chrome/" target="_blank" style="color:orangered">点击下载谷歌浏览器!</a><br/>
               2：C盘新建文件夹，命名比如<span style="color:#409EFF">temp</span>；<br/>
-              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格) --disable-web-security --user-data-dir=C:\<span style="color:#409EFF">temp</span><br/>
+              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格)<br/><span style="color:#409EFF"> --disable-web-security --user-data-dir=C:\temp</span><br/>
               <img src="../assets/teach.png"> <br/>
               4:保存后，打开此浏览器，重新访问本网页。<br/>
               5：同时在本浏览器登录畅易阁。<br/>
@@ -21,7 +21,7 @@
       <v-nav @userInfo="getUserInfo"></v-nav>
       <div id="action">
           <div>
-              <el-button type="warning" icon="el-icon-info" @click="getTip">点击查看使用说明</el-button>
+              <el-button type="primary" icon="el-icon-info" @click="getTip">点击查看使用说明</el-button>
           </div>
           <div>
               商品号：

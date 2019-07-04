@@ -7,7 +7,7 @@ let connection = mysql.createConnection({
     database:'tlbb9'
 })
 
-
+connection.connect();
 //let home_query='select * from trading where price>? and price<? and grade>? and grade <? order by ? desc limit 20'
 
 
@@ -34,8 +34,7 @@ function home_main_query(params,order,kind) {
             if(err){
                 reject(err)
             }else {
-
-                resolve(result)
+              resolve(result)
             }
         })
     })
