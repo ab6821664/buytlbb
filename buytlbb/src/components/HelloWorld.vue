@@ -30,9 +30,6 @@
           <div>
               <el-button type="primary" @click="add_list">添加到列表</el-button>
           </div>
-          <div>
-              <span>抢购模式:{{buy_mode}}</span>
-          </div>
       </div>
 
 
@@ -194,7 +191,7 @@ export default {
         },
         spend:function(user,score){
             axios.post(
-                "http://localhost:9090/home/spend",
+                "http://106.12.103.25:9090/home/spend",
                 {
                     user:user,
                     score:score
@@ -329,6 +326,11 @@ export default {
         var todayId=sessionStorage.getItem('id');
         if(!todayId) {
             visitAdd();
+        }
+        let id = this.$route.query.id;
+        if(id){
+            this.goods_serial_num = id;
+            this.add_list();
         }
     },
     components:{"v-nav":nav},

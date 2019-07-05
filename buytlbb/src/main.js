@@ -6,7 +6,7 @@ import App from './App.vue';
 import './style/common.css';
 import './style/main.less'
 
-Vue.config.productionTip = false
+
 Vue.use(ElementUI)
 
 new Vue({

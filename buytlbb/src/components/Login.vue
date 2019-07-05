@@ -107,7 +107,7 @@
                     return;
                 }
                 axios.post(
-                     "http://localhost:9090/home/adduser",
+                     "http://106.12.103.25:9090/home/adduser",
                     {
                         user:this.form.user,
                         password:md5(this.form.password),
@@ -143,7 +143,7 @@
             query_msg:function () {
                 var this_=this;
                 axios.post(
-                    "http://localhost:9090/home/queryuser",
+                    "http://106.12.103.25:9090/home/queryuser",
                     {
                         user:this.counter
                     }
@@ -166,7 +166,7 @@
             recharge:function(){
                 var this_=this;
                 axios.post(
-                    "http://localhost:9090/home/recharge",
+                    "http://106.12.103.25:9090/home/recharge",
                     {
                         used:this.counter,
                         id:this.form.card_num,
@@ -189,7 +189,7 @@
                 let password=md5(this.form_in.password);
                 var this_=this;
                 axios.post(
-                    " http://localhost:9090/home/login",
+                    " http://106.12.103.25:9090/home/login",
                     {
                         user:user,
                         password:password

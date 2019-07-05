@@ -165,6 +165,14 @@
             save(){
                 this.$message("只有充值会员才支持")
             },
+            handleClickBuy(item){
+                this.$router.push({
+                       path:'/buy',
+                       query:{
+                           id:item.id
+                       }
+                })
+            },
             handleClick(row){
                 let url ="http://tl.cyg.changyou.com/goods/char_detail?serial_num="+row.id;
                 window.open(url);

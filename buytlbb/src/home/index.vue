@@ -134,12 +134,12 @@
         },
         methods:{
             main_query(){
-                if(this.deadLineTime<new Date().getTime()){
+             /*   if(this.deadLineTime<new Date().getTime()){
                     if(new Date().getTime()-this.queryTime<8000){
                         this.$message(' 未登录或者非会员限制8秒查询一次，请稍后再试');
                         return;
                     }
-                }
+                }*/
                 this.queryTime = new Date().getTime();
                let query={};
                 query.params=[];

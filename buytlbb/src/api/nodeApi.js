@@ -1,6 +1,6 @@
 import axios from 'axios';
 // let base='http://134.160.170.177:9090';
-let  base='http://localhost:3000';
+let  base='http://106.12.103.25:3000';
 
 // 首页搜索
   let homeQuery=(params)=>{
