@@ -186,6 +186,7 @@ function wholeBuy(){
     _initImg()
         .then(function (result) {
             getVerifyUrlOption.form.file_base64 = result;
+            console.log(result)
             //  getVerifyUrlOption.form.img_data = result;
             return getVerifyAnswer()
         }).then(function (result) {
@@ -241,7 +242,7 @@ function wholeBuy(){
 
        })
    }
-// intervalTime = setInterval(wholeBuy,100)
+ intervalTime = setInterval(wholeBuy,100)
 
 
 

@@ -13,7 +13,7 @@ let getDetaiMsg = getDetai.dataiMsg;
 
     let userBean = {
         search:1,  //  1  搜索交易区  2  搜索公式区
-        ifGetDetail:false  // 是否获取详情
+        ifGetDetail:true  // 是否获取详情
     }
 
    let updateUrl = userBean.search==1?'http://tl.cyg.changyou.com/goods/selling?world_id=0&order_by=remaintime-desc&have_chosen=&page_num=':'http://tl.cyg.changyou.com/goods/public?world_id=0&order_by=remaintime-desc&have_chosen=&page_num=';
@@ -78,7 +78,7 @@ request.get({
         }
         Promise.all(pageAccount).then(function () {
             page=page+1;
-            setTimeout(getMessage,5000);
+            setTimeout(getMessage,25000);
         }).catch(function (err) {
             console.log('fail to next page',err)
         })

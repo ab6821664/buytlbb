@@ -26,8 +26,9 @@ function home_main_query(params,order,kind) {
     }else{
         if(kind==1) {
             home_query='select * from trading where price>? and price<? and grade>? and grade <? and deadline_time>? and deadline_time<? and world_id=? order by '+ order+' desc limit 30'
+        }else {
+            home_query='select * from trading where price>? and price<? and grade>? and grade <? and deadline_time>? and deadline_time<? and world_id=? and menpai="'+ kind  +'" order by '+order+' desc limit 30'
         }
-         home_query='select * from trading where price>? and price<? and grade>? and grade <? and deadline_time>? and deadline_time<? and world_id=? and menpai="'+ kind  +'" order by '+order+' desc limit 30'
     }
     return  new Promise(function (resolve, reject) {
         connection.query(home_query, params ,function (err, result) {
@@ -39,7 +40,7 @@ function home_main_query(params,order,kind) {
         })
     })
 }
-
+// 价格监控
 function monitor_price(params){
      let time = new Date().getTime()+1209600000;
      console.log(params)
@@ -66,11 +67,10 @@ function monitor_price(params){
              })
          })
      }
-
-
 }
+
 
 module.exports={
     home_main_query:home_main_query,
-    monitor_price:monitor_price
+    monitor_price:monitor_price,
 }

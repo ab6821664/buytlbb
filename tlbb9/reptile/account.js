@@ -3,7 +3,7 @@
 let request = require('request');
 let cheerio = require('cheerio');
 
-let cookId = 'aa9523ac-e2d1-4369-afc8-a05cfbc3e761';
+let cookId = '2afe8537-5d38-4739-9311-8f305a1b3512';
 let j = request.jar();
 request = request.defaults({jar:j})
 let url='http://tl.cyg.changyou.com/goods/char_detail';
