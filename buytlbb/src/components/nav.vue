@@ -4,6 +4,7 @@
            <div v-bind:class="{ select: index==1 }" @click="chooseTab(1,'/')"><i class="el-icon-s-home"></i> <span to="/">首页</span></div>
            <div v-bind:class="{ select: index==2 }" @click="chooseTab(2,'/buy')"><i class="el-icon-goods"></i> <span to="/buy">公示区秒号</span></div>
            <div v-bind:class="{ select: index==3 }" @click="chooseTab(3,'/trading')"><i class="el-icon-star-off"></i> <span to="trading">交易区监控</span></div>
+           <div v-bind:class="{ select: index==4 }" @click="chooseTab(4,'/help')"><i class="el-icon-star-off"></i> <span to="trading">帮助与演示</span></div>
            <div class="login" @click="loginDialogVisible=true"><i class="el-icon-user"></i> 登录/注册</div>
        </div>
         <div class="account" v-show="index==1">

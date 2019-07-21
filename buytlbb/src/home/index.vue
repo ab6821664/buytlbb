@@ -113,9 +113,9 @@
                 grade_end:'',
                 kindOptions:[
                     {value: 1,  label: '不限门派'},
-                    {value: '天山',  label: '天山'},{value: '唐门',  label: '唐门'},{value: '峨眉',  label: '峨眉'},{value: '武当',  label: '武当'},
+                    {value: '天山',  label: '天山'},{value: '唐门',  label: '唐门'},{value: '峨嵋',  label: '峨嵋'},{value: '武当',  label: '武当'},
                     {value: '星宿',  label: '星宿'},{value: '丐帮',  label: '丐帮'},{value: '鬼谷',  label: '鬼谷'},{value: '明教',  label: '明教'},
-                    {value: '少林',  label: '少林'},{value: '天龙',  label: '天龙'}
+                    {value: '少林',  label: '少林'},{value: '天龙',  label: '天龙'},{value: '逍遥',  label: '逍遥'}
                 ],
                 kindOptionsSelect:1,
                 orderBy:'bold',

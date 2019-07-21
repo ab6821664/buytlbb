@@ -8,7 +8,8 @@
           <div style="text-align: left">
               1:首先安装Google Chrome 浏览器  --- > <a href="https://www.google.cn/chrome/" target="_blank" style="color:orangered">点击下载谷歌浏览器!</a><br/>
               2：C盘新建文件夹，命名比如<span style="color:#409EFF">temp</span>；<br/>
-              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格)<br/><span style="color:#409EFF"> --disable-web-security --user-data-dir=C:\temp</span><br/>
+              3:安装完成后，右击此图标，点击属性选项，点击快捷方式选项，在目标那一栏添加(注意空格)<br/><span style="color:#409EFF">
+              <input type="text" value="--disable-web-security --user-data-dir=C:\temp" style="width:70%"></span><br/>
               <img src="../assets/teach.png"> <br/>
               4:保存后，打开此浏览器，重新访问本网页。<br/>
               5：同时在本浏览器登录畅易阁。<br/>
@@ -338,25 +339,12 @@ export default {
         var this_=this;
         function monitor() {
             let time_now=new Date();
-            if(this_.status){
                 this_.goods_list_detail.forEach(function (item) {
                     if(item.targetTimeTall-time_now<0&&item.targetTimeTall-time_now>-1000){
-                          var startBuy=function(){
-                              let fluc=new Date().getTime();
-                              let msgUrl='http://tl.cyg.changyou.com/goods/char_detail?serial_num='+item.order+"&t="+fluc;
-                            axios.get(msgUrl).then(function (result) {
-                               if(result.data.indexOf("立即购买")>-1){
-                                   this_.buy(item.order,item.index)
-                               }else {
-                                   startBuy();
-                               }
-                            })
-                        }
-                        startBuy();
+                        this_.buy(item.order,item.index)
                     }
                 })
             }
-        }
         setInterval(monitor,1000);
     },
     name: 'HelloWorld'

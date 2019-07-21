@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import home from '../home/index.vue'
 import trading from '../view/trading/trading.vue'
 import buy from '../components/HelloWorld'
+import help from '../view/help/help.vue'
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,10 @@ const routes = [
     {
         path:"/buy",
         component:buy
+    },
+    {
+        path:"/help",
+        component:help
     }
 ]
 
