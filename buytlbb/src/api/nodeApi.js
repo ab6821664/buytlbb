@@ -1,6 +1,6 @@
 import axios from 'axios';
 // let base='http://134.160.170.177:9090';
-let  base='http://106.12.103.25:3000';
+let  base='http://localhost:3000';
 
 // 首页搜索
   let homeQuery=(params)=>{
@@ -18,6 +18,22 @@ let  base='http://106.12.103.25:3000';
 
   }
 
+// 获取便宜账号
+let getCheap=()=>{
+    return new Promise(function (resolve,reject) {
+        axios({
+            url:base+'/getCheap',
+            method:'post',
+            data:{}
+        }).then((res)=>{
+            resolve(res.data)
+        }).catch((err)=>{
+            reject(err)
+        })
+    })
+
+}
+
   // 交易区价格监控
 
 let monitorPrice =  (params)=>{
@@ -34,4 +50,4 @@ let monitorPrice =  (params)=>{
       })
 }
 
-  export {homeQuery,monitorPrice};
+  export {homeQuery,monitorPrice,getCheap};

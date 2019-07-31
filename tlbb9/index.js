@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({
 
 let main_query = require('./data-source/query-data')
 let home_main_query = main_query.home_main_query;
-let monitor_price = main_query.monitor_price
+let monitor_price = main_query.monitor_price;
+let getCheap = main_query.getCheap;
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -33,6 +34,15 @@ app.post('/homeQuery', function(req, res){
         console.log(err)
     })
 });
+
+app.post('/getCheap',function (req,res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    getCheap({}).then((data)=>{
+        res.json(data)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
 
 app.post('/monitorPrice', function(req, res){
     res.header('Access-Control-Allow-Origin', '*')

@@ -69,8 +69,23 @@ function monitor_price(params){
      }
 }
 
+// 获取便宜的
+
+function getCheap(offset){
+    let query = 'SELECT * FROM trading_sale WHERE price<260 ORDER BY grade DESC LIMIT 20 OFFSET ?';
+    return  new Promise(function (resolve, reject) {
+        connection.query(query, [0] ,function (err, result) {
+            if(err){
+                reject(err)
+            }else {
+                resolve(result)
+            }
+        })
+    })
+}
 
 module.exports={
     home_main_query:home_main_query,
     monitor_price:monitor_price,
+    getCheap:getCheap
 }

@@ -55,7 +55,19 @@
                 </div>
             </div>
         </div>
+        <div class="home-account-show" style="margin-top: 40px">
+            <h3 style="text-align: left"><span>抢号成功展示</span><span style="float:right"><el-button type="primary" @click="index++">换一批</el-button></span></h3>
+            <div style="display: flex;height: 200px;margin-top: 30px;margin-bottom: 100px">
+                <div style="display: flex;flex-direction: column;font-size: 14px;border: solid 3px #ffd435;padding: 15px;justify-content: space-around;margin-left: 18px" v-for="item in list.slice(sliceIndex*5,sliceIndex*5+5)">
+                    <div>{{item.name}}</div>
+                    <div style="margin-top: 20px">评分：{{item.grade}} 价格：<span style="color:red">{{item.price}}</span></div>
+                    <div style="margin-top: 20px">总属性：{{item.fourAll}} 血上限：{{item.bold}}</div>
+                    <div><el-button type="primary" @click="scan(item.id)">查看</el-button></div>
+                </div>
+            </div>
+        </div>
     </div>
+
   </div>
 </template>
 
@@ -64,6 +76,7 @@
   import Vue from 'vue';
   import $ from "jquery"
   import { visitAdd } from '../api/api'
+  import { getCheap } from '../api/nodeApi'
   import nav from './nav'
 export default {
     data() {
@@ -77,10 +90,21 @@ export default {
             buy_mode:"",
             tips:false,
             times:0,
-            deadLineTime:sessionStorage.getItem("time")
+            deadLineTime:sessionStorage.getItem("time"),
+            list:[],
+            index:0
         }
     },
+    computed:{
+       sliceIndex(){
+           return this.index%4
+       }
+    },
     methods:{
+        scan(id){
+            let url ="http://tl.cyg.changyou.com/goods/char_detail?serial_num="+id;
+            window.open(url);
+        },
         change_mode:function(mode){
             this.buy_mode=mode;
         },
@@ -192,7 +216,7 @@ export default {
         },
         spend:function(user,score){
             axios.post(
-                "http://106.12.103.25:9090/home/spend",
+                "http://localhost:9090/home/spend",
                 {
                     user:user,
                     score:score
@@ -333,6 +357,9 @@ export default {
             this.goods_serial_num = id;
             this.add_list();
         }
+        getCheap().then((res)=>{
+            this.list=res;
+        });
     },
     components:{"v-nav":nav},
     mounted:function(){
@@ -355,7 +382,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
  #content{
-   max-width:80%;
+   width:1100px;
    height:500px;
    margin:10px auto 0;
    border:solid 1px grey;
@@ -363,7 +390,7 @@ export default {
  #action{
      display: flex;
      justify-content: space-around;
-     width: 80%;
+     width: 1100px;
      margin: 0 auto;
      flex-direction: row;
      margin-top:60px;

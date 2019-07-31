@@ -12,7 +12,7 @@ let getDetaiMsg = getDetai.dataiMsg;
 
 
     let userBean = {
-        search:1,  //  1  搜索交易区  2  搜索公式区
+        search:2,  //  1  搜索交易区  2  搜索公式区
         ifGetDetail:true  // 是否获取详情
     }
 

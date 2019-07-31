@@ -1,5 +1,5 @@
 import axios from 'axios';
- let base='http://106.12.103.25:9090';
+ let base='http://localhost:9090';
 //let  base='http://106.12.103.25:9090';
 
 const visitAdd=function () {

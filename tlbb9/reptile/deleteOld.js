@@ -9,7 +9,7 @@ let hasSaled = data.hasSaled;
 
 getAllId().then((res)=>{
     console.log(res[0].id)
-    let i=1;
+    let i=35000;
     let url='http://tl.cyg.changyou.com/goods/char_detail?serial_num=' + res[i].id;
     function dataiMsg(){
         let url='http://tl.cyg.changyou.com/goods/char_detail?serial_num=' + res[i].id
